@@ -1,0 +1,5 @@
+# EggLink V2
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666", GROUP="plugdev"
+
+# EggLink V3
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="69e0", MODE="0666", GROUP="plugdev", ACTION=="add", RUN+="/sbin/modprobe ftdi_sio" RUN+="/bin/sh -c 'echo 0403 69e0 > /sys/bus/usb-serial/drivers/ftdi_sio/new_id'"
